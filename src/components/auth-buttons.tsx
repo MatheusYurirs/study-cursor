@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 
 export function SignInButton() {
   return (
-    <Button onClick={() => signIn('google')}>Sign in with Google</Button>
+    <Button size="xl" className="w-full" onClick={() => signIn('google')}>Sign in with Google</Button>
   );
 }
 
 export function SignOutButton() {
   return (
-    <Button onClick={() => signOut()}>Sign Out</Button>
+    <Button size="xl" className="w-full" onClick={() => signOut()}>Sign Out</Button>
   );
 }
 
@@ -20,12 +20,16 @@ export function AuthButtons() {
 
   if (session) {
     return (
-      <div className="flex flex-col items-center gap-4">
-        <p>Signed in as {session.user?.email}</p>
+      <div className="flex flex-col items-center gap-6 w-full max-w-sm">
+        <p className="text-lg">Signed in as {session.user?.email}</p>
         <SignOutButton />
       </div>
     );
   }
 
-  return <SignInButton />;
+  return (
+    <div className="w-full max-w-sm">
+      <SignInButton />
+    </div>
+  );
 } 
